@@ -44,6 +44,14 @@ function App() {
     }
     return null
   }
+  const resetGame = () => {
+    setBoard(Array(9).fill(null))
+    setTurn(turns.X)
+    setWinner(null)
+  }
+  const checkEndGame = (newBoard) => {
+    return newBoard.every((square) => square !== null)
+  }
   const updateBoard = (index) => {
     //Verifica que el tablero no este lleno
     if(board[index] || winner) return
@@ -62,9 +70,9 @@ function App() {
     if(newWinner) {
       //Hay un ganador
       setWinner(newWinner)
-      setTimeout(() => {
-        alert('El ganador es ' + newWinner)
-      }, 500)
+    }else if(checkEndGame(newBoard)){
+      //Hay un empate
+      setWinner(false)
     }
   }
   return (
@@ -94,6 +102,30 @@ function App() {
             {turns.O}
           </Square>
         </section>
+        <button onClick={resetGame}>Reiniciar</button>
+        {
+          winner !== null && (
+            <section className="winner">
+              <div className="text">
+                <h2>
+                  {
+                    winner === false 
+                    ? 'Empate'
+                    : 'Gano:' 
+                  }
+                </h2>
+                <header className="win">
+                  {winner && <Square>{winner}</Square>}
+                </header>
+                <footer>
+                  <button onClick={resetGame}>
+                    Reiniciar
+                  </button>
+                </footer>
+              </div>
+            </section>
+          )
+        }
       </main>
       
     </>
