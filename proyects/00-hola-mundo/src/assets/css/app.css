@@ -1,0 +1,67 @@
+.divCard{
+    display: grid;
+    gap: 23px;
+}
+.tw-card{
+    width: 400px;
+    color: white;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.tw-card-header{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    justify-items: start;
+    gap: 20px;
+}
+.tw-avatar{
+    width: 100%;
+    border-radius: 50%;
+}
+.tw-div{
+    display: grid;
+    place-content: center;
+}
+.tw-span{
+    display: block;
+    color: gray;
+}
+.tw-aside{
+    display: grid;
+    place-content: center;
+}
+.tw-button{
+    min-width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    padding: 0px 30px;
+    cursor: pointer;
+}
+.txt-hover{
+    display: none;
+    width: 100%;
+}
+.tw-button.tw-is-follow:hover .txt-hover{
+    display: block !important;
+}
+.tw-button:hover{
+    background-color: #c5c5c5;
+}
+.tw-button.tw-is-follow{
+    border: 1px solid white;
+    background: transparent; 
+    color: white;
+}
+.tw-button.tw-is-follow:hover{
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.178);
+    color: red;
+    width: 130%;
+}
+.tw-button.tw-is-follow:hover .txt-original{
+    display: none;
+}
