@@ -1,7 +1,8 @@
 import{ useState } from 'react'
+import confetti from "canvas-confetti"
 const turns ={
-  X: 'x',
-  O: 'o',
+  X: '✘',
+  O: '○',
 }
 
 const Square = ({children,isSelected, updateBoard, index}) => {
@@ -27,8 +28,15 @@ const winner_combos = [
   [2, 4, 6],
 ]
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null))
-  const [turn, setTurn] = useState(turns.X)
+  const [board, setBoard] = useState(() => {
+    //Carga el tablero desde el localStorage
+    const boardFromStore = window.localStorage.getItem('board')
+    return boardFromStore ? JSON.parse(boardFromStore) : Array(9).fill(null)
+  })
+  const [turn, setTurn] = useState(() => {
+    const turnFromStore = window.localStorage.getItem('turn')
+    return turnFromStore ?? turns.X
+  })
   const [winner, setWinner] = useState(null) //null: no hay ganador, false : hay empate
 
   const checkForWinner = (boardToCheck) => {
@@ -48,6 +56,9 @@ function App() {
     setBoard(Array(9).fill(null))
     setTurn(turns.X)
     setWinner(null)
+
+    window.localStorage.removeItem('board')
+    window.localStorage.removeItem('turn')
   }
   const checkEndGame = (newBoard) => {
     return newBoard.every((square) => square !== null)
@@ -65,10 +76,14 @@ function App() {
     const newTurn = turn === turns.X ? turns.O : turns.X
     setTurn(newTurn)
 
+    //Guardar partida
+    window.localStorage.setItem('board', JSON.stringify(newBoard))
+    window.localStorage.setItem('turn', newTurn)
     //Verifica si hay ganador
     const newWinner = checkForWinner(newBoard)
     if(newWinner) {
       //Hay un ganador
+      confetti()
       setWinner(newWinner)
     }else if(checkEndGame(newBoard)){
       //Hay un empate
