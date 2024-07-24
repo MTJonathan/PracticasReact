@@ -17,6 +17,13 @@ function App() {
       window.removeEventListener('pointermove', handleMove)
     }
   },[enabled ])
+  useEffect(()=>{
+    document.body.classList.toggle('none-cursor', enabled)
+
+    return () => {
+      document.body.classList.remove('none-cursor')
+    }
+  },[enabled])
   return (
     <>
       <div className="follower" style={{transform: `translate(${position.x}px, ${position.y}px)`}}></div>
