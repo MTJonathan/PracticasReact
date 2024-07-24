@@ -15,18 +15,13 @@ function App() {
         setImageUrl(`https://cataas.com/cat/says/${threeFirstWords}?fontSize=50&fontColor=red`)
       })
   }
-  useEffect(() => {
-    getRamdomFact()
-  }, [])
+  useEffect(getRamdomFact, [])
 
-  const cargar = () => {
-    getRamdomFact()
-  }
   return (
     <>
       <main>
         <h1>App de Gatitos</h1>
-        <button onClick={cargar}>Cargar otro</button>
+        <button onClick={getRamdomFact}>Cargar otro</button>
         {fact && <p>{fact}</p>}
         {imageUrl && <img src={imageUrl} alt="gatito" className='gatitoImg'/>}
       </main>
