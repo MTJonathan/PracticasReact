@@ -14,3 +14,8 @@ ul{
 main{
   text-align: center;
 }
+.isactive{
+  font-weight: 600;
+  color: #000000;
+  pointer-events: none;
+}
