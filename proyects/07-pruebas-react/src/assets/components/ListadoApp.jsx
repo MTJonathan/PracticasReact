@@ -16,26 +16,39 @@ const Item = ({ nombre }) => {
   );
 };
 const ListadoApp = () => {
+  const agregarItem = () => {
+    setArreglo([
+      ...arreglo,
+      {
+        nombre: "Item Agregado",
+      },
+    ]);
+  };
   let listadoSecciones = [
-    {nombre: "Instalaciones Necesarias"},
-    {nombre: "Uso de Vite"},
-    {nombre: "Componente"},
-    {nombre: "Variables En JSX"},
-    {nombre: "Props"},
-    {nombre: "Eventos"},
-    {nombre: "UseState"},
-    {nombre: "Redux"},
-    {nombre: "CustomHooks"},
+    { nombre: "Instalaciones Necesarias" },
+    { nombre: "Uso de Vite" },
+    { nombre: "Componente" },
+    { nombre: "Variables En JSX" },
+    { nombre: "Props" },
+    { nombre: "Eventos" },
+    { nombre: "UseState" },
+    { nombre: "Redux" },
+    { nombre: "CustomHooks" },
   ];
   const [arreglo, setArreglo] = useState(listadoSecciones);
   return (
     <>
       <h1>Listado De Temas del Curso</h1>
       <ol>
-        {listadoSecciones.map((item) => (
+        {arreglo.map((item) => (
           <Item key={item.nombre} nombre={item.nombre} />
         ))}
       </ol>
+
+      <div className="btnsLista">
+        <button onClick={() => agregarItem()}>Agregar</button>
+        <button onClick={() => setArreglo([])}>Limpiar</button>
+      </div>
     </>
   );
 };
