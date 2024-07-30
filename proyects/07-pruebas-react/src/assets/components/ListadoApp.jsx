@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import AgregarTarea from "./AgregarTarea";
 const Item = ({ nombre }) => {
   const [visto, setVisto] = useState(false);
 
@@ -39,6 +40,7 @@ const ListadoApp = () => {
   return (
     <>
       <h1>Listado De Temas del Curso</h1>
+      <AgregarTarea />
       <ol>
         {arreglo.map((item) => (
           <Item key={item.nombre} nombre={item.nombre} />

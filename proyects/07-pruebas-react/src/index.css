@@ -41,6 +41,15 @@ h1 {
 h2{
   font-size: 2em;
 }
+.inputForm{
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+}
+.inputForm:focus{
+  outline: 2px solid #535bf2;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
