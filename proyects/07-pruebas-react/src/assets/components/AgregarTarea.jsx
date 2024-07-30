@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-const AgregarTarea = () => {
+const AgregarTarea = ({ agregarTarea }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
@@ -8,6 +8,8 @@ const AgregarTarea = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    agregarTarea(inputValue);
+    setInputValue("");
   };
   return (
     <>
@@ -20,6 +22,7 @@ const AgregarTarea = () => {
           value={inputValue}
           onChange={handleChange}
         />
+        <button>Agregar</button>
       </form>
     </>
   );

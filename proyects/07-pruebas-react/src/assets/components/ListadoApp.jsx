@@ -11,44 +11,43 @@ const Item = ({ nombre }) => {
     <>
       <li>
         {nombre} - {visto ? "✔️" : "❌"}{" "}
-        <button onClick={cambiarVisto}>Cambiar</button>
+        <button onClick={cambiarVisto}>{visto ? "Desmarcar" : "Marcar"}</button>
       </li>
     </>
   );
 };
 const ListadoApp = () => {
-  const agregarItem = () => {
-    setArreglo([
-      ...arreglo,
-      {
-        nombre: "Item Agregado",
-      },
-    ]);
-  };
   let listadoSecciones = [
-    { nombre: "Instalaciones Necesarias" },
-    { nombre: "Uso de Vite" },
-    { nombre: "Componente" },
-    { nombre: "Variables En JSX" },
-    { nombre: "Props" },
-    { nombre: "Eventos" },
-    { nombre: "UseState" },
-    { nombre: "Redux" },
-    { nombre: "CustomHooks" },
+    { id: 1, nombre: "Instalaciones Necesarias" },
+    { id: 2, nombre: "Uso de Vite" },
+    { id: 3, nombre: "Componente" },
+    { id: 4, nombre: "Variables En JSX" },
+    { id: 5, nombre: "Props" },
+    { id: 6, nombre: "Eventos" },
+    { id: 7, nombre: "UseState" },
+    { id: 8, nombre: "Redux" },
+    { id: 9, nombre: "CustomHooks" },
   ];
   const [arreglo, setArreglo] = useState(listadoSecciones);
+  const onAddTask = (task) => {
+    if (task === "") return;
+    const envio ={
+      id:arreglo.length+1,
+      nombre:task
+    }
+    setArreglo([...arreglo, envio]);
+  }
   return (
     <>
       <h1>Listado De Temas del Curso</h1>
-      <AgregarTarea />
+      <AgregarTarea agregarTarea={onAddTask}/>
       <ol>
         {arreglo.map((item) => (
-          <Item key={item.nombre} nombre={item.nombre} />
+          <Item key={item.id} nombre={item.nombre} />
         ))}
       </ol>
 
       <div className="btnsLista">
-        <button onClick={() => agregarItem()}>Agregar</button>
         <button onClick={() => setArreglo([])}>Limpiar</button>
       </div>
     </>
