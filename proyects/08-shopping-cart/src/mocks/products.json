@@ -79,7 +79,7 @@
           "stock":123,
           "brand":"OPPO",
           "category":"smartphones",
-          "thumbnail":"https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+          "thumbnail":"https://www.oppo.com/content/dam/oppo/product-asset-library/specs/beta/f19-black-blue-sliver-1920.png",
           "images":[
              "https://i.dummyjson.com/data/products/4/1.jpg",
              "https://i.dummyjson.com/data/products/4/2.jpg",
@@ -98,7 +98,7 @@
           "stock":32,
           "brand":"Huawei",
           "category":"smartphones",
-          "thumbnail":"https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "thumbnail":"https://www.whatmobile.com.pk/control/news/assets/06032019/e297111b1cea9a49d75c0f6ea223600c.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/5/1.jpg",
              "https://i.dummyjson.com/data/products/5/2.jpg",
@@ -115,7 +115,7 @@
           "stock":50,
           "brand":"Samsung",
           "category":"laptops",
-          "thumbnail":"https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+          "thumbnail":"https://images.samsung.com/is/image/samsung/assets/uk/galaxy-book/buy/02_image-carousel/product-kv/book-pro-360/GalaxyBook_Pro360_Navy_ProductKV_Dynamic_PC_img.jpg?imbypass=true",
           "images":[
              "https://i.dummyjson.com/data/products/7/1.jpg",
              "https://i.dummyjson.com/data/products/7/2.jpg",
@@ -133,7 +133,7 @@
           "stock":94,
           "brand":"Apple",
           "category":"smartphones",
-          "thumbnail":"https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "thumbnail":"https://www.digitaltrends.com/wp-content/uploads/2022/08/iPhone-SE-2022-Starlight-Back-in-Hand.jpg?resize=625%2C417&p=1",
           "images":[
              "https://i.dummyjson.com/data/products/1/1.jpg",
              "https://i.dummyjson.com/data/products/1/2.jpg",
@@ -152,7 +152,7 @@
           "stock":68,
           "brand":"Microsoft Surface",
           "category":"laptops",
-          "thumbnail":"https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "thumbnail":"https://m.media-amazon.com/images/I/715eSW0QXdL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/8/1.jpg",
              "https://i.dummyjson.com/data/products/8/2.jpg",
@@ -171,7 +171,7 @@
           "stock":96,
           "brand":"Infinix",
           "category":"laptops",
-          "thumbnail":"https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+          "thumbnail":"https://cdn11.bigcommerce.com/s-o9pppsyjzh/images/stencil/1280x1280/products/454112/12211172/N1266168__1__17932.1690074434.jpg?c=1",
           "images":[
              "https://i.dummyjson.com/data/products/9/1.jpg",
              "https://i.dummyjson.com/data/products/9/2.png",
@@ -190,7 +190,7 @@
           "stock":89,
           "brand":"HP Pavilion",
           "category":"laptops",
-          "thumbnail":"https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+          "thumbnail":"https://i.ebayimg.com/images/g/d4kAAOSwTxNg3Irk/s-l500.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/10/1.jpg",
              "https://i.dummyjson.com/data/products/10/2.jpg",
