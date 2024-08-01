@@ -10,7 +10,7 @@
           "stock":54,
           "brand":"Golden",
           "category":"home-decoration",
-          "thumbnail":"https://i.dummyjson.com/data/products/30/thumbnail.jpg",
+          "thumbnail":"https://m.media-amazon.com/images/I/71KYV+hk36L._AC_SY300_SX300_.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/30/1.jpg",
              "https://i.dummyjson.com/data/products/30/2.jpg",
@@ -28,7 +28,7 @@
           "stock":83,
           "brand":"Apple",
           "category":"laptops",
-          "thumbnail":"https://i.dummyjson.com/data/products/6/thumbnail.png",
+          "thumbnail":"https://images.anandtech.com/reviews/mac/retinaMacBookPro/DSC_7539sm.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/6/1.png",
              "https://i.dummyjson.com/data/products/6/2.jpg",
@@ -46,7 +46,7 @@
           "stock":34,
           "brand":"Apple",
           "category":"smartphones",
-          "thumbnail":"https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "thumbnail":"https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_side_flat_inline.jpg.large_2x.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/2/1.jpg",
              "https://i.dummyjson.com/data/products/2/2.jpg",
@@ -64,7 +64,7 @@
           "stock":36,
           "brand":"Samsung",
           "category":"smartphones",
-          "thumbnail":"https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+          "thumbnail":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Microsoft-Sharp-Kin-Two-Phone-Open.jpg/375px-Microsoft-Sharp-Kin-Two-Phone-Open.jpg",
           "images":[
              "https://i.dummyjson.com/data/products/3/1.jpg"
           ]
