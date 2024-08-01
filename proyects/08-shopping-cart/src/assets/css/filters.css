@@ -1,9 +1,11 @@
 .filters {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
   font-weight: 700;
+  gap: 2rem;
 }
 
 .filters > div {

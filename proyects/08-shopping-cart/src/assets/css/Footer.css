@@ -21,3 +21,8 @@
   margin: 0;
   display: flex;
 }
+@media(width < 600px) {
+  .footer {
+    display: none;
+  }
+}
