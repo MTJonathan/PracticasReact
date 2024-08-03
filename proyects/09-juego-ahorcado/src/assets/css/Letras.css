@@ -1,0 +1,17 @@
+.letras{
+    width: 500px;
+}
+.letrasContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.letras button{
+    width: 60px;
+    height: 32px;
+    cursor: pointer;
+}
+.ganaste{
+    font-size: 23px;
+}
