@@ -15,6 +15,7 @@ button{
   border: none;
 }
 .btn{
+  margin-top: 13px;
   width: 120px;
   height: 60px;
   border: none;
@@ -31,4 +32,14 @@ button{
 }
 .palabra{
   font-size: 25px;
+}
+.ganaste{
+  font-size: 23px;
+  font-weight: 700;
+  color: rgb(91, 248, 91);
+}
+.perdiste{
+  font-size: 23px;
+  font-weight: 700;
+  color: rgb(247, 111, 111);
 }

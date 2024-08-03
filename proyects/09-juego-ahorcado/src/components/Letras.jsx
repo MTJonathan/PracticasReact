@@ -1,33 +1,6 @@
 import "../assets/css/Letras.css";
 import Item from "./Item";
-const letrasBtn = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+import { letrasBtn } from "../assets/js/letrasbtn";
 
 const Letras = ({ manejarEnvio, esCorrecta, esIncorrecta }) => {
   return (
