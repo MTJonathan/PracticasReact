@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { palabras } from "./palabras";
+import confetti from "canvas-confetti";
 export const variablesApp = () => {
   const [palabra, setPalabra] = useState(
     palabras[Math.floor(Math.random() * palabras.length)].toUpperCase()
@@ -33,6 +34,16 @@ export const variablesApp = () => {
       }
     }
   };
-
-  return { reiniciarJuego, palabra, palabraVerificar, intentos, letrasCorrectas, letrasIncorrectas, manejarEnvio };
+  if (palabraVerificar.join("") === palabra) {
+    confetti();
+  }
+  return {
+    reiniciarJuego,
+    palabra,
+    palabraVerificar,
+    intentos,
+    letrasCorrectas,
+    letrasIncorrectas,
+    manejarEnvio,
+  };
 };

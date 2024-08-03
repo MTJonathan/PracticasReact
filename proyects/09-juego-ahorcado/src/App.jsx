@@ -2,7 +2,6 @@ import React from "react";
 import Letras from "./components/Letras";
 import { variablesApp } from "./assets/js/app";
 import "./assets/css/App.css";
-import confetti from "canvas-confetti";
 const App = () => {
   const {
     reiniciarJuego,
@@ -13,10 +12,6 @@ const App = () => {
     letrasIncorrectas,
     manejarEnvio,
   } = variablesApp();
-
-  if (palabraVerificar.join("") === palabra) {
-    confetti();
-  }
 
   return (
     <main className="App">
