@@ -1,23 +1,4 @@
 export const palabras = [
-  // Programacion
-  "Java",
-  "Python",
-  "JavaScript",
-  "HTML",
-  "CSS",
-  "PHP",
-  "Ruby",
-  "React",
-  "Angular",
-  "Django",
-  "SQL",
-  "NoSQL",
-  "Node",
-  "Express",
-  "Bootstrap",
-  "Sass",
-  "TypeScript",
-
   // Naturaleza
   "Montana",
   "Rio",
@@ -235,7 +216,7 @@ export const palabras = [
   "Chef",
   "Abogado",
   "Contador",
-  "Diseñador",
+  "Disenador",
 
   // Lugares
   "Escuela",
@@ -271,4 +252,46 @@ export const palabras = [
   "Politica",
   "Derecho",
   "Economia",
+
+  // Redes sociales
+  "Facebook",
+  "Twitter",
+  "Instagram",
+  "LinkedIn",
+  "Snapchat",
+  "TikTok",
+  "Pinterest",
+  "YouTube",
+  "WhatsApp",
+
+  // Celebridades
+  "Beyonce",
+  "Rihanna",
+  "Eminem",
+  "Drake",
+  "TaylorSwift",
+  "Adele",
+  "EdSheeran",
+  "JustinBieber",
+  "KatyPerry",
+
+  // Famosos personajes ficticios
+  "Batman",
+  "Superman",
+  "Spiderman",
+  "Ironman",
+  "Hulk",
+  "Thor",
+  "WonderWoman",
+  "HarryPotter",
+  "Hermione",
+  "RonWeasley",
+  "Voldemort",
+  "DarthVader",
+  "LukeSkywalker",
+  "Yoda",
+  "HanSolo",
+  "Leia",
+  "Chewbacca",
 ];
+
