@@ -1,15 +1,10 @@
 const Item = ({ manejarEnvio, letra, esCorrecta, esIncorrecta }) => {
-    const manejarClick = (letra) => {
-      manejarEnvio(letra);
-    };
-    const classBtn = esCorrecta ? "btnCorrect" : esIncorrecta ? "btnIncorrect" : "";
-    const id = `letra-${letra}`;
+    const classBtn = esCorrecta ? "btnCorrect" : esIncorrecta ? "btnIncorrect" : undefined;
     return (
       <button
         className={classBtn}
-        onClick={() => manejarClick(letra)}
-        id={id}
-        disabled={classBtn !== ""}
+        onClick={() => manejarEnvio(letra)}
+        disabled={classBtn !== undefined}
       >
         {letra}
       </button>
