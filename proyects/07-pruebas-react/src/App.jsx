@@ -4,6 +4,7 @@ import { Componente } from './assets/components/Componente'
 import { Props } from './assets/components/Props'
 import Contador from './assets/components/Contador'
 import ListadoApp from './assets/components/ListadoApp'
+import UserApp from './assets/components/UserApp'
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
       <Props titulo={'Curso de React'} subtitulo={'Aprende React'}/>
       <Contador />
       <ListadoApp />
+      <UserApp />
     </>
   )
 }
