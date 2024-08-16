@@ -29,6 +29,31 @@ app.post("/create", (req, res) => {
   );
 });
 
+app.get("/empleados", (req, res) => {
+  db.query("SELECT * FROM empleados", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/update", (req, res) => {
+  const { id, nombre, edad, pais, cargo, anos } = req.body;
+  db.query(
+    "UPDATE empleados SET nombre = ?, edad = ?, pais = ?, cargo = ?, anos = ? WHERE id = ?",
+    [nombre, edad, pais, cargo, anos, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 app.listen(3000, () =>
   console.log("Server running on port http://localhost:3000")
 );
