@@ -54,6 +54,18 @@ app.put("/update", (req, res) => {
   );
 });
 
+app.delete("/delete/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("DELETE FROM empleados WHERE id = ?", [id], 
+    (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.listen(3000, () =>
   console.log("Server running on port http://localhost:3000")
 );

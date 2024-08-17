@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import Swal from 'sweetalert2'
 import "./assets/CSS/App.css";
+
 const App = () => {
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
@@ -15,7 +17,7 @@ const App = () => {
     if (nombre === "" || edad === "" || pais === "" || cargo === "" || anos === "") {
       alert("Por favor, rellene todos los campos");
     } else {
-      Axios.post("http://localhost:3000/empleados", {
+      Axios.post("http://localhost:3000/create", {
         nombre: nombre,
         edad: edad,
         pais: pais,
@@ -28,6 +30,12 @@ const App = () => {
         setCargo("");
         setAnos("");
         getEmpleados();
+        Swal.fire({
+          title: '<strong>Registro Exitoso!!!</strong>',
+          html: `<i>Se ha registrado correctamente a ${nombre}</i>`,
+          icon: 'success',
+          timer: 2300
+        })
       });
     }
   };
@@ -53,6 +61,12 @@ const App = () => {
       setCargo("");
       setAnos("");
       setEditar(false);
+      Swal.fire({
+        title: '<strong>Atualización Exitosa!!!</strong>',
+        html: `<i>Se ha actualizado correctamente a ${nombre}</i>`,
+        icon: 'success',
+        timer: 2300
+      })
     });
   }
   const editarEmpleado = (val) => {
@@ -72,6 +86,28 @@ const App = () => {
     setPais("");
     setCargo("");
     setAnos("");
+  };
+
+  const deleteEmpleado = (val) => {
+    Swal.fire({
+      title: '<strong>Eliminar</strong>',
+      html: `<i>Desea eliminar a ${val.nombre} ?</i>`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Axios.delete(`http://localhost:3000/delete/${val.id}`);
+        Swal.fire(
+          'Eliminado',
+          `Se ha eliminado correctamente a ${val.nombre}`,
+          'success'
+        )
+      }
+    })
   };
 
   useEffect(() => {
@@ -170,7 +206,7 @@ const App = () => {
                       <button onClick={() => editarEmpleado(val)}>
                         Editar
                       </button>
-                      <button>Eliminar</button>
+                      <button onClick={() => deleteEmpleado(val)}>Eliminar</button>
                     </div>
                   </td>
                 </tr>
