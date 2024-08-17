@@ -62,10 +62,8 @@
   cursor: pointer;
 }
 .datos button:hover {
-  background-color: transparent;
-  color: #222;
   font-weight: 800;
-  border: 1px solid gray;
+  scale: 1.05;
 }
 .lista {
   width: 90%;
@@ -80,9 +78,52 @@
   text-align: center;
   border-collapse: collapse;
 }
-.lista table td, .lista table th {
+/* .lista table tr {
+  display: flex;
+} */
+.lista table td,
+.lista table th {
+  /* width: 100%; */
   padding: 13px;
 }
-.lista table tr:nth-child(odd) td{
+.lista table tr:nth-child(odd) td {
   background-color: #f7f6f7;
 }
+.btnsTable {
+  display: flex;
+  overflow: hidden;
+  border-radius: 13px;
+  justify-content: center;
+}
+.btnsTable button {
+  width: 100%;
+  padding: 7px 0;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.btnsTable button:first-child {
+  background-color: #0db1d2;
+}
+.btnsTable button:last-child {
+  background-color: #C02F3B;
+}
+.btnsForm{
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 13px;
+}
+.btnsForm button{
+  width: 200px;
+}
+.btnsForm .btnUpdate{
+  background-color: #FFC106;
+  color: #000;
+}
+.btnsForm .btnCancel{
+  background-color: #C02F3B;
+  color: #fff;
+}
+

@@ -2,15 +2,45 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import "./assets/CSS/App.css";
 const App = () => {
+  const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
   const [edad, setEdad] = useState("");
   const [pais, setPais] = useState("");
   const [cargo, setCargo] = useState("");
   const [anos, setAnos] = useState("");
   const [empleados, setEmpleados] = useState([]);
+  const [editar, setEditar] = useState(false);
 
   const add = () => {
-    Axios.post("http://localhost:3000/create", {
+    if (nombre === "" || edad === "" || pais === "" || cargo === "" || anos === "") {
+      alert("Por favor, rellene todos los campos");
+    } else {
+      Axios.post("http://localhost:3000/empleados", {
+        nombre: nombre,
+        edad: edad,
+        pais: pais,
+        cargo: cargo,
+        anos: anos,
+      }).then(() => {
+        setNombre("");
+        setEdad("");
+        setPais("");
+        setCargo("");
+        setAnos("");
+        getEmpleados();
+      });
+    }
+  };
+
+  const getEmpleados = () => {
+    Axios.get("http://localhost:3000/empleados").then((response) => {
+      setEmpleados(response.data);
+    });
+  };
+
+  const update = () => {
+    Axios.put(`http://localhost:3000/update`, {
+      id: id,
       nombre: nombre,
       edad: edad,
       pais: pais,
@@ -22,14 +52,26 @@ const App = () => {
       setPais("");
       setCargo("");
       setAnos("");
-      alert("Registrado");
+      setEditar(false);
     });
-  };
+  }
+  const editarEmpleado = (val) => {
+    setEditar(true);
 
-  const getEmpleados = () => {
-    Axios.get("http://localhost:3000/empleados").then((response) => {
-      setEmpleados(response.data);
-    });
+    setNombre(val.nombre);
+    setEdad(val.edad);
+    setPais(val.pais);
+    setCargo(val.cargo);
+    setAnos(val.anos);
+    setId(val.id);
+  };
+  const cancelarEditar = () => {
+    setEditar(false);
+    setNombre("");
+    setEdad("");
+    setPais("");
+    setCargo("");
+    setAnos("");
   };
 
   useEffect(() => {
@@ -48,6 +90,7 @@ const App = () => {
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
+            required
           />
         </label>
         <label>
@@ -55,7 +98,9 @@ const App = () => {
           <input
             type="number"
             value={edad}
+            min="0"
             onChange={(e) => setEdad(e.target.value)}
+            required
           />
         </label>
         <label>
@@ -64,6 +109,7 @@ const App = () => {
             type="text"
             value={pais}
             onChange={(e) => setPais(e.target.value)}
+            required
           />
         </label>
         <label>
@@ -72,6 +118,7 @@ const App = () => {
             type="text"
             value={cargo}
             onChange={(e) => setCargo(e.target.value)}
+            required
           />
         </label>
         <label>
@@ -79,11 +126,20 @@ const App = () => {
           <input
             type="number"
             value={anos}
+            min="0"
             onChange={(e) => setAnos(e.target.value)}
+            required
           />
         </label>
         <footer>
-          <button onClick={add}>Registrar</button>
+          {!editar ? (
+            <button onClick={add}>Registrar</button>
+          ) : (
+            <div className="btnsForm">
+              <button className="btnUpdate" onClick={update}>Actualizar</button>
+              <button className="btnCancel" onClick={cancelarEditar}>Cancelar</button>
+            </div>
+          )}
         </footer>
       </form>
       <div className="lista">
@@ -110,8 +166,10 @@ const App = () => {
                   <td>{val.cargo}</td>
                   <td>{val.anos}</td>
                   <td>
-                    <div>
-                      <button>Editar</button>
+                    <div className="btnsTable">
+                      <button onClick={() => editarEmpleado(val)}>
+                        Editar
+                      </button>
                       <button>Eliminar</button>
                     </div>
                   </td>
