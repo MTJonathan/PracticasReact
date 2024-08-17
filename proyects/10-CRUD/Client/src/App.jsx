@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import "./assets/CSS/App.css";
 
 const App = () => {
@@ -14,7 +14,13 @@ const App = () => {
   const [editar, setEditar] = useState(false);
 
   const add = () => {
-    if (nombre === "" || edad === "" || pais === "" || cargo === "" || anos === "") {
+    if (
+      nombre === "" ||
+      edad === "" ||
+      pais === "" ||
+      cargo === "" ||
+      anos === ""
+    ) {
       alert("Por favor, rellene todos los campos");
     } else {
       Axios.post("http://localhost:3000/create", {
@@ -24,18 +30,13 @@ const App = () => {
         cargo: cargo,
         anos: anos,
       }).then(() => {
-        setNombre("");
-        setEdad("");
-        setPais("");
-        setCargo("");
-        setAnos("");
-        getEmpleados();
+        cancelarEditar();
         Swal.fire({
-          title: '<strong>Registro Exitoso!!!</strong>',
-          html: `<i>Se ha registrado correctamente a ${nombre}</i>`,
-          icon: 'success',
-          timer: 2300
-        })
+          title: "<strong>Registro Exitoso!!!</strong>",
+          html: `<i>Se ha registrado correctamente a <strong>${nombre}</strong></i>`,
+          icon: "success",
+          timer: 2300,
+        });
       });
     }
   };
@@ -55,20 +56,15 @@ const App = () => {
       cargo: cargo,
       anos: anos,
     }).then(() => {
-      setNombre("");
-      setEdad("");
-      setPais("");
-      setCargo("");
-      setAnos("");
-      setEditar(false);
+      cancelarEditar();
       Swal.fire({
-        title: '<strong>Atualización Exitosa!!!</strong>',
-        html: `<i>Se ha actualizado correctamente a ${nombre}</i>`,
-        icon: 'success',
-        timer: 2300
-      })
+        title: "<strong>Atualización Exitosa!!!</strong>",
+        html: `<i>Se ha actualizado correctamente a <strong>${nombre}</strong></i>`,
+        icon: "success",
+        timer: 2300,
+      });
     });
-  }
+  };
   const editarEmpleado = (val) => {
     setEditar(true);
 
@@ -90,24 +86,35 @@ const App = () => {
 
   const deleteEmpleado = (val) => {
     Swal.fire({
-      title: '<strong>Eliminar</strong>',
+      title: "<strong>Eliminar</strong>",
       html: `<i>Desea eliminar a ${val.nombre} ?</i>`,
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, eliminar',
-      cancelButtonText: 'Cancelar',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        Axios.delete(`http://localhost:3000/delete/${val.id}`);
-        Swal.fire(
-          'Eliminado',
-          `Se ha eliminado correctamente a ${val.nombre}`,
-          'success'
-        )
+        Axios.delete(`http://localhost:3000/delete/${val.id}`).then(() => {
+          Swal.fire({
+            title: "Eliminado",
+            text: "Se ha eliminado correctamente",
+            icon: "success",
+            timer: 2300,
+          });
+        }).catch((err) => {
+          Swal.fire({
+            title: "Error",
+            text: 'Ocurrio un error al eliminar el registro',
+            icon: "error",
+            footer: JSON.parse(JSON.stringify(err)).message==="Network Error" ? "Intenta más tarde" : "Error de servidor",
+            timer: 2300,
+          })
+        });
+        
       }
-    })
+    });
   };
 
   useEffect(() => {
@@ -172,8 +179,12 @@ const App = () => {
             <button onClick={add}>Registrar</button>
           ) : (
             <div className="btnsForm">
-              <button className="btnUpdate" onClick={update}>Actualizar</button>
-              <button className="btnCancel" onClick={cancelarEditar}>Cancelar</button>
+              <button className="btnUpdate" onClick={update}>
+                Actualizar
+              </button>
+              <button className="btnCancel" onClick={cancelarEditar}>
+                Cancelar
+              </button>
             </div>
           )}
         </footer>
@@ -206,7 +217,9 @@ const App = () => {
                       <button onClick={() => editarEmpleado(val)}>
                         Editar
                       </button>
-                      <button onClick={() => deleteEmpleado(val)}>Eliminar</button>
+                      <button onClick={() => deleteEmpleado(val)}>
+                        Eliminar
+                      </button>
                     </div>
                   </td>
                 </tr>
